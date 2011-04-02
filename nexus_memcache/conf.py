@@ -31,7 +31,7 @@ class NexusCacheImproperlyConfigured(Exception):
 
 
 if float(django.get_version()) < 1.3: # For all versions prior to 1.3.x
-    BACKEND = getattr(settings, NEXUS_MEM_KEY, settings.CACHE_BACKEND)
+    BACKEND = getattr(settings, _NEXUS_MEM_KEY, settings.CACHE_BACKEND)
 else: # For all versions 1.3.x and after
     # Does a defined default exist?
     if not settings.CACHES.has_key(cache.DEFAULT_CACHE_ALIAS):
